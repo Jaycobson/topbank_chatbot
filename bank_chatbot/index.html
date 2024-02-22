@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="html">
+<head>
+    <!-- Set the character set to UTF-8 for proper text encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Set the viewport to the width of the device and initial scale to 1.0 for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Set the title of the webpage -->
+    <title>TopBank Chatbot</title>
+
+    <!-- Link to an external stylesheet for styling the webpage -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #32CD32; /* Set background color to green */
+            color: #fff; /* Set font color to white */
+            font-family: 'Poppins', sans-serif;  /* Set font family */
+        }
+
+        #centerText {
+            font-size: 18px;
+            text-align: justify; /* Set text-align to justify */
+            max-width: 80%;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        #centerText h1 {
+            color: #FFD700; /* Set h1 color to gold */
+            margin-bottom: 20px;
+            text-align: center; /* Center align h1 */
+            animation: flyIn 0.5s ease forwards; /* Fly in animation for h1 */
+            opacity: 0; /* Initially hide h1 */
+        }
+
+        #centerText h2 {
+            color: #fff; /* Set h2 color to white */
+            margin-bottom: 20px;
+            text-align: justify; /* Set text-align to justify for h2 */
+            opacity: 0; /* Initially hide h2 */
+            animation: fadeIn 0.5s ease forwards; /* Fade in animation for h2 */
+            animation-delay: 0.5s; /* Delay h2 animation by 0.5 seconds */
+        }
+
+        #poweredBy {
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+        #autogonIcon {
+            width: 30px;
+            height: 30px;
+            margin-top: 10px;
+        }
+
+        #emailInput {
+            padding: 6px;
+            margin-right: 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #submitButton {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: #FFD700; /* Set button background color to gold */
+            color: #000; /* Set button text color to black */
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        #submitButton:hover {
+            background-color: #FFA500; /* Change button background color on hover */
+        }
+
+        /* Fly in animation keyframes for h1 */
+        @keyframes flyIn {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Fade in animation keyframes for h2 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn-chatbot.autogon.ai/index.min.js" defer></script>
+  <script>
+      var CHAT_AGENT_ID = "67e46cd6-271f-4fca-b739-4a456a95af4e";
+  </script>
+    
+    <!-- The body of the HTML document -->
+    <div id="centerText">
+        <h1>TopBank Chatbot</h1>
+        <h2>Welcome to our financial history chatbot! 🤖💼 Whether you're curious about your spending habits, want to track your expenses, or need insights into your financial transactions, our chatbot is here to assist you. Simply ask any questions about your financial history, and we'll provide you with the information you need. Let's get started on your financial journey together!</h2>
+    </div>
+
+    <!-- Form for submitting email -->
+    <form id="emailForm">
+        <input type="email" id="emailInput" name="email" placeholder="Enter your email" required>
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+    <div id="poweredBy">Powered by Autogon <img src="images/Autogonrmv.png" alt="Autogon Icon" id="autogonIcon"></div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var email = document.getElementById('emailInput').value; // Get email input value
+            // Create a new Blob with email content
+            var blob = new Blob([email], { type: 'text/plain' });
+            // Create a new URL for the Blob
+            var url = window.URL.createObjectURL(blob);
+            // Create a new anchor element to trigger download
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'emails.txt'; // Set download filename
+            a.click(); // Click the anchor element to start download
+            // Revoke the URL object to free up resources
+            window.URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
