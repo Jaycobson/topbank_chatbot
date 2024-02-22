@@ -4,6 +4,14 @@ Introducing TopBank Chatbot – your personalized financial companion! Gain valu
 
 Say goodbye to complex banking interfaces and hello to simplicity and clarity. Start chatting with TopBank Chatbot. Start your journey to financial empowerment today!
 
+## How to Use
+
+1. Gitclone the repository or download the zip file
+2. Open the index.html file
+3. Enter your email (optional)
+4. Chat with the chatbot to ask about your financial history.
+5. Receive insights and information about your bank transactions.
+
 ## Features
 
 - View transaction history
@@ -11,12 +19,6 @@ Say goodbye to complex banking interfaces and hello to simplicity and clarity. S
 - Analyze spending patterns
 - Get insights into financial habits
 - Track expenses and income
-
-## How to Use
-
-1. Enter your email (optional)
-2. Chat with the chatbot to ask about your financial history.
-3. Receive insights and information about your bank transactions.
 
 ## Benefits
 
